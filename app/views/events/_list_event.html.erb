@@ -1,0 +1,23 @@
+<div ng-controller="EventCtrl as eCtrl" ng-init="eCtrl.load()">
+  <div class="row">
+  <div class="pull-right" style="padding-bottom:40px">
+    <button class="btn btn-warning btn-xs" ng-click="eCtrl.recents()">Recentes</button>
+    <a href="#about">Próximos</a>
+  </div>
+  </div>
+  <div infinite-scroll="eCtrl.scroll()" infinite-scroll-distance="3">
+  <div class="media" ng-repeat="event in eCtrl.events">
+    <div class="media-left">
+        <a href="#">
+          <img class="media-object" ng-src="{{event.photo}}" />
+        </a>
+      </div>
+      <div class="media-body">
+        <h2 class="media-heading"><a ng-href="/events/{{event.id}}">{{ event.title }}</a></h2>
+        <h4>{{ event.date }} em {{ event.local }}</h4>
+        <p>{{ event.description }}</p>
+        <span>{{ event.created_at }}</span>
+      </div>
+    </div>
+  </div>
+</div>

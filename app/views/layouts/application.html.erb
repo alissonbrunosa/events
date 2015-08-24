@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html ng-app="events">
+<head>
+  <title>Events</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header page-scroll">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <%= link_to "Events Brazil", root_path, class: "navbar-brand" %>
+      </div>
+
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="hidden active">
+            <a href="#page-top"></a>
+          </li>
+          <% if user_signed_in? %>
+            <li class="page-scroll">
+              <%= link_to "Novo", new_event_path %>
+            </li>
+            <li class="page-scroll">
+              <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+            </li>
+          <% else %>
+            <li class="page-scroll">
+              <%= link_to "Sign in", new_user_session_path %>
+            </li>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <% flash.each do |name,msg| %>
+    <%= content_tag(:div, msg, class: "alert alert-info") %>
+  <% end %>
+  <%= yield %>
+</div>
+</body>
+<%= javascript_include_tag 'application' %>
+</html>

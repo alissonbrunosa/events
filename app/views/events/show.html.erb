@@ -1,0 +1,36 @@
+<div class="portfolio-modal modal fade" id="eventModal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-content">
+    <%= link_to(:back, class: "close-modal") do %>
+      <div class="lr">
+        <div class="rl">
+        </div>
+      </div>
+    <% end %>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+          <div class="modal-body">
+            <h2><%= @event.title %></h2>
+            <hr class="star-primary">
+            <%= image_tag @event.photo.url, class: "img-responsive img-centered" %>
+            <p><%= @event.description %></p>
+            <ul class="list-inline item-details">
+              <li>Organizador:
+                <strong><a href="#"><%= "Organizador" %></a>
+                </strong>
+              </li>
+              <li>Data:
+                <strong><a href="#"><%= l(@event.date_start, format: :when) %></a>
+                </strong>
+              </li>
+              <li>Local:
+                <strong><a href="#"><%= @event.local %></a>
+                </strong>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
