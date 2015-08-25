@@ -14,9 +14,15 @@
       </div>
       <div class="media-body">
         <h2 class="media-heading"><a ng-href="/events/{{event.id}}">{{ event.title }}</a></h2>
-        <h4>{{ event.date }} em {{ event.local }}</h4>
+        <h5>{{ event.date }} em {{ event.local }}</h5>
         <p>{{ event.description }}</p>
-        <span>{{ event.created_at }}</span>
+        <span><a>Criado a {{ event.created_at }}</a></span><br>
+        <a href="#" ng-click="eCtrl.confirm(event.id)">
+          <i class="fa fa-2x fa-check-circle-o" ng-class="{confirm: event.status == 'confirm' }"></i> {{ event.confirm_count }}
+        </a>
+        <a href="#" ng-click="eCtrl.unconfirm(event.id)">
+          <i class="fa fa-2x fa-check-circle-o" ng-class="{confirm: event.status == 'unconfirm' }"></i> {{ event.unconfirm_count }}
+        </a>
       </div>
     </div>
   </div>
