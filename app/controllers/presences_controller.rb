@@ -1,4 +1,5 @@
 class PresencesController < ApplicationController
+  before_action :authenticate_user!
   def create
   	@event = Event.find(params[:event_id])
   	@presence = @event.presences.where(user_id: current_user.id).first_or_create

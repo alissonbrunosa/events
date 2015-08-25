@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :set_event, only: [:edit, :update, :destroy]
 
   def index
     @events = Event.includes(:presences).order(created_at: :desc).page(params[:page])
@@ -11,7 +11,7 @@ class EventsController < ApplicationController
   end
 
   def show
-    Event.find(params[:id])
+   @event = Event.find(params[:id])
   end
 
   def new
@@ -19,11 +19,12 @@ class EventsController < ApplicationController
   end
 
   def edit
+    authorize @event
   end
 
   def create
-    @event = current_user.event.build(event_params)
-
+    @event = current_user.events.build(event_params)
+    @event.presences.build(user_id: current_user.id)
     respond_to do |format|
       if @event.save
         format.html { redirect_to @event, notice: 'Event was successfully created.' }
@@ -36,6 +37,7 @@ class EventsController < ApplicationController
   end
 
   def update
+    authorize @event
     respond_to do |format|
       if @event.update(event_params)
         format.html { redirect_to @event, notice: 'Event was successfully updated.' }

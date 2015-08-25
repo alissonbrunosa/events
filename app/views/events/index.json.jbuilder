@@ -4,7 +4,7 @@ json.array!(@events) do |event|
   json.created_at time_ago_in_words(event.created_at)
   json.date l(event.date_time, format: :when)
   json.presences_count event.presences_count
-  json.confirmed event.presences.where(user_id: current_user.id).exists?
+  json.confirmed event.presences.where(user_id: current_user.id).exists? if current_user
   json.url event_url(event, format: :json)
   json.photo event.photo.url(:medium)
 end
