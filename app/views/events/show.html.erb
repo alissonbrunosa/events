@@ -30,10 +30,16 @@
               <% if policy(@event).update? %>
                 <li>
                   <strong>
-                    <%= link_to "Editar", edit_event_path(@event) %>
+                    <%= link_to "Editar", edit_event_path(@event, image: @event.photo.url, popup: true) %>
                   </strong>
                 </li>
               <% end %>
+              <li>
+                <div class="fb-share-button" 
+                  data-href="<%= event_url(@event) %>" 
+                  data-layout="button_count">
+                </div>
+              </li>  
             </ul>
           </div>
         </div>
@@ -41,3 +47,20 @@
     </div>
   </div>
 </div>
+   <script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '168897073442603',
+      xfbml      : true,
+      version    : 'v2.4'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>

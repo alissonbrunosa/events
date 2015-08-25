@@ -15,6 +15,7 @@
  *= require bootstrap
  *= require freelancer
  *= require font-awesome
+ *= require social-share-button
  */
 body {
 	padding-top: 160px;

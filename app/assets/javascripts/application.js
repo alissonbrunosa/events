@@ -24,3 +24,4 @@
 //= require jqBootstrapValidation
 //= require freelancer
 //= require events
+//= require social-share-button
