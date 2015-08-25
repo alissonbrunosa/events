@@ -8,7 +8,7 @@ class EventPolicy < ApplicationPolicy
 	end
 
 	def update?
-		user.id == record.user.id
+		user && user.id == record.user.id
 	end
 
 	def edit?
