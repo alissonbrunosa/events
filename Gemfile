@@ -15,7 +15,6 @@ gem 'devise'
 gem 'kaminari'
 gem "paperclip"
 gem "pundit"
-gem 'social-share-button', '~> 0.1.8'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
