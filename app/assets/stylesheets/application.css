@@ -23,3 +23,15 @@ body {
 .font-bold {
 	font-weight: bold;
 }
+
+.plus {
+	cursor: pointer;
+}
+
+.confirm {
+	color: #5890ff;
+}
+
+.unconfirm {
+	color: #7f7f7f;
+}

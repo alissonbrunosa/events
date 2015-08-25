@@ -1,6 +1,6 @@
-<div class="portfolio-modal modal fade" id="eventModal" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="portfolio-modal">
   <div class="modal-content">
-    <%= link_to(:back, class: "close-modal") do %>
+    <%= link_to(events_path, class: "close-modal") do %>
       <div class="lr">
         <div class="rl">
         </div>
@@ -16,11 +16,11 @@
             <p><%= @event.description %></p>
             <ul class="list-inline item-details">
               <li>Organizador:
-                <strong><a href="#"><%= "Organizador" %></a>
+                <strong><a href="#"><%= @event.user.email %></a>
                 </strong>
               </li>
               <li>Data:
-                <strong><a href="#"><%= l(@event.date_start, format: :when) %></a>
+                <strong><a href="#"><%= l(@event.date_time, format: :when) %></a>
                 </strong>
               </li>
               <li>Local:

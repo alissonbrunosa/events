@@ -37,4 +37,32 @@ angular.module('events').controller('EventCtrl', ["$http", function($http){
     self.load();
   }
 
+  self.presence = function(event_id) {
+    var event = self.events.findBy("id", event_id)
+    if(event.confirmed)
+      self.delete_presence(event_id);
+    else
+      self.create_presence(event_id);
+  };
+
+  self.create_presence = function(event_id){
+    $http.post(event_id + '/presences',{}).success(function(data){
+      var event = self.events.findBy("id", event_id)
+      event.presences_count = data.presences_count;
+      event.confirmed = true;
+    }).error(function(fail){
+      alert(fail.error);
+    });
+  };
+
+  self.delete_presence = function(event_id){
+    $http.delete(event_id + '/presences',{}).success(function(data){
+      var event = self.events.findBy("id", event_id)
+      event.presences_count = data.presences_count;
+      event.confirmed = false;
+    }).error(function(fail){
+      alert(fail.error);
+    });
+  };
+
 }]);

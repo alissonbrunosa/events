@@ -3,23 +3,26 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   def index
-    @events = Event.page(params[:page])
-    puts params[:recents].class
-    @events = @events.order(created_at: :desc) if params[:recents] == "true"
+    @events = Event.includes(:presences).order(created_at: :desc).page(params[:page])
+  end
+
+  def events_current_user
+    @events = current_user.events.order(created_at: :desc).page(params[:page])
   end
 
   def show
+    Event.find(params[:id])
   end
 
   def new
-    @event = Event.new
+    @event = current_user.events.build
   end
 
   def edit
   end
 
   def create
-    @event = Event.new(event_params)
+    @event = current_user.event.build(event_params)
 
     respond_to do |format|
       if @event.save
@@ -54,10 +57,10 @@ class EventsController < ApplicationController
 
   private
     def set_event
-      @event = Event.find(params[:id])
+      @event = current_user.events.find(params[:id])
     end
 
     def event_params
-      params.require(:event).permit(:photo, :title, :description, :local, :date_start, :end_date)
+      params.require(:event).permit(:photo, :title, :description, :local, :date_time)
     end
 end

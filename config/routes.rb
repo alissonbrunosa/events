@@ -1,8 +1,17 @@
 Rails.application.routes.draw do
+  
   root to: 'home#index'
 
   devise_for :users
-  resources :events
+  resources :events do 
+    collection do 
+      get 'events_current_user'
+    end
+  end
+
+  post ':event_id/presences' => 'presences#create'
+  delete ':event_id/presences' => 'presences#destroy'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
