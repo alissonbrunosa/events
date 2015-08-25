@@ -4,8 +4,8 @@
   <title>Events</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-  <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css"> -->
+  <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= csrf_meta_tags %>
 </head>
@@ -32,11 +32,11 @@
               <%= link_to "Novo", new_event_path %>
             </li>
             <li class="page-scroll">
-              <%= link_to "Sair", destroy_user_session_path, method: :delete %>
+              <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
             </li>
           <% else %>
             <li class="page-scroll">
-              <%= link_to "Entrar", new_user_session_path %>
+              <%= link_to "Sign in", new_user_session_path %>
             </li>
           <% end %>
         </li>

@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_event, only: [:edit, :update, :destroy]
+  before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   def index
     @events = Event.page(params[:page])
@@ -9,17 +9,18 @@ class EventsController < ApplicationController
   end
 
   def show
-    @event = Event.find(params[:id])
   end
 
   def new
-    @event = current_user.events.build
+    @event = Event.new
   end
 
   def edit
   end
 
   def create
+    @event = Event.new(event_params)
+
     respond_to do |format|
       if @event.save
         format.html { redirect_to @event, notice: 'Event was successfully created.' }
@@ -53,10 +54,10 @@ class EventsController < ApplicationController
 
   private
     def set_event
-     @event = current_user.events.find(params[:id])
+      @event = Event.find(params[:id])
     end
 
     def event_params
-      params.require(:event).permit(:photo, :title, :description, :local, :date_time)
+      params.require(:event).permit(:photo, :title, :description, :local, :date_start, :end_date)
     end
 end
