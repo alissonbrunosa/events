@@ -37,7 +37,6 @@ class EventsController < ApplicationController
   end
 
   def update
-    puts ENV["AWS_ACCESS_KEY_ID"]
     authorize @event
     respond_to do |format|
       if @event.update(event_params)
