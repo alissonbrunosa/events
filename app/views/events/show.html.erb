@@ -12,7 +12,9 @@
           <div class="modal-body">
             <h2><%= @event.title %></h2>
             <hr class="star-primary">
-            <%= image_tag @event.photo.url(:banner), class: "img-responsive img-centered" %>
+            <%= link_to(@event.photo.url, class: "event_image_original") do %>
+              <%= image_tag @event.photo.url(:banner), class: "img-responsive img-centered" %>
+            <% end %>
             <p><%= @event.description %></p>
             <ul class="list-inline item-details">
               <li>Organizador:

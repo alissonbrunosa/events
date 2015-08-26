@@ -23,4 +23,6 @@
 //= require cbpAnimatedHeader
 //= require jqBootstrapValidation
 //= require freelancer
+//= require jquery.fancybox
 //= require events
+

@@ -15,6 +15,7 @@
  *= require bootstrap
  *= require freelancer
  *= require font-awesome
+ *= require jquery.fancybox
  */
 body {
 	padding-top: 160px;
