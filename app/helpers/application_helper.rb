@@ -1,6 +1,6 @@
 module ApplicationHelper
 	def facebook_share
-		if @event
+		if @event && action_name == "show"
 			html = <<-HTML 
 				<meta property="og:url"           content="#{ event_url(@event) }" />
 		    <meta property="og:type"          content="website" />
