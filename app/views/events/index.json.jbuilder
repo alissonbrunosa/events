@@ -6,5 +6,5 @@ json.array!(@events) do |event|
   json.presences_count event.presences_count
   json.confirmed event.presences.where(user_id: current_user.id).exists? if current_user
   json.url event_url(event, format: :json)
-  json.photo event.photo.url(:medium)
+  json.photo event.photo.url(:thumb)
 end

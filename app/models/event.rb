@@ -2,6 +2,7 @@ class Event < ActiveRecord::Base
 	belongs_to :user
 	has_many :presences
 	has_attached_file :photo, styles: { 
+		thumb: "217x217#",
 		medium: "400x300#", 
 		banner: "750x500#" 
 	}

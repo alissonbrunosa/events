@@ -36,3 +36,37 @@ body {
 .unconfirm {
 	color: #7f7f7f;
 }
+
+.blogicon {
+    font-size: 217px;
+    width: 350px;
+    height: 250px;
+    color: #18bc9c;
+}
+
+.ratetext {
+    font-size: 37px;
+    text-decoration: underline;
+    padding-bottom: 10px;
+}
+
+.votes {
+    font-size: 47px;
+    padding-right: 20px;
+    color:#197BB5;
+}
+
+div.list-group-item {
+    height: auto;
+    min-height: 272px;
+}
+
+div.list-group-item:hover, div.list-group-item:focus {
+    border-left:10px solid #18bc9c;
+    border-right:10px solid #18bc9c;
+}
+
+div.list-group-item {
+    border-left:10px solid transparent;
+    border-right:10px solid transparent;
+}
