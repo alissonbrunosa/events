@@ -6,7 +6,7 @@ class Event < ActiveRecord::Base
 		banner: "750x500#" 
 	}
   validates_attachment_content_type :photo, content_type: /\Aimage\/.*\Z/
-  process_in_background :photo, processing_image_url: "/photos/medium/missing.png"
+  #process_in_background :photo, processing_image_url: "/photos/medium/missing.png"
 	validates :title, :description, :date_time, :local, presence: true
 
 	
