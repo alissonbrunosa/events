@@ -1,6 +1,6 @@
 development:
-  access_key_id: AKIAIXUL4JMP44LDFS4A
-  secret_access_key: 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
+  access_key_id: ENV['AWS_ACCESS_KEY_ID']
+  secret_access_key: ENV['AWS_SECRET_ACCESS_KEY']
 
 production:
   access_key_id: ENV['AWS_ACCESS_KEY_ID']
