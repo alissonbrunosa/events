@@ -1,10 +1,10 @@
 <div class="portfolio-modal">
   <div class="modal-content">
     <%= link_to(events_path, class: "close-modal") do %>
-      <div class="lr">
-        <div class="rl">
-        </div>
+    <div class="lr">
+      <div class="rl">
       </div>
+    </div>
     <% end %>
     <div class="container">
       <div class="row">
@@ -13,7 +13,7 @@
             <h2><%= @event.title %></h2>
             <hr class="star-primary">
             <%= link_to(@event.photo.url, class: "event_image_original") do %>
-              <%= image_tag @event.photo.url(:banner), class: "img-responsive img-centered" %>
+            <%= image_tag @event.photo.url(:banner), class: "img-responsive img-centered" %>
             <% end %>
             <p><%= @event.description %></p>
             <ul class="list-inline item-details">
@@ -30,22 +30,16 @@
                 </strong>
               </li>
               <% if policy(@event).update? %>
-                <li>
-                  <strong>
-                    <%= link_to "Editar", edit_event_path(@event, image: @event.photo.url, popup: true) %>
-                  </strong>
-                </li>
-              <% end %>
               <li>
-                <div class="fb-share-button" 
-                  data-href="<%= event_url(@event) %>" 
-                  data-layout="button_count">
-                </div>
-              </li>  
+                <strong>
+                  <%= link_to "Editar", edit_event_path(@event, image: @event.photo.url, popup: true) %>
+                </strong>
+              </li>
+              <% end %>
             </ul>
+            <%= share_button @event %>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
