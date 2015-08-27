@@ -262,4 +262,5 @@ Devise.setup do |config|
   config.omniauth :facebook, ENV['FACEBOOK_KEY'], ENV['FACEBOOK_SECRET'], scope: 'email,public_profile' , info_fields: 'email, name'
   #config.omniauth :twitter, "KEY", "SECRET"
   config.omniauth :google_oauth2, ENV['GOOGLE_KEY'], ENV['GOOGLE_SECRET']
+  config.omniauth :linkedin, ENV['LINKEDIN_KEY'], ENV['LINKEDIN_SECRET'], :scope => 'r_basicprofile r_emailaddress'
 end

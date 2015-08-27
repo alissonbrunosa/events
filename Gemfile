@@ -17,6 +17,7 @@ gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem "omniauth-google-oauth2"
+gem 'omniauth-linkedin'
 gem 'kaminari'
 gem "paperclip"
 gem 'delayed_paperclip'
