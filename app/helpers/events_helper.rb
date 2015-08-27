@@ -4,7 +4,7 @@ module EventsHelper
 			<div class="col-md-12">
         <ul class="social-network social-circle">
           <li>
-            <a href="http://www.facebook.com/sharer/sharer.php?s=100&p[url]=#{event_url(event)}&p[images][0]=#{event.photo.url(:original, timestamp: false)}&p[title]=#{event.title}&p[summary]=#{event.description}" class="icoFacebook b-share-button bg" title="Facebook" target="_blank"><i class="fa fa-facebook"></i></a>
+            <a href="https://www.facebook.com/dialog/feed?app_id=168897073442603&link=#{event_url(event)}&picture=#{event.photo.url(:original, timestamp: false)}&display=popup&name=#{event.title}&description=#{event.description}&caption=#{root_url}&redirect_uri=#{event_url(event)}" class="icoFacebook b-share-button bg" title="Facebook"><i class="fa fa-facebook"></i></a>
           </li>
           <li>
             <a href="http://twitter.com/intent/tweet?status=Não deixe de participar+#{event_url(event)}" class="icoTwitter bg" title="Twitter" target="_blank"><i class="fa fa-twitter"></i></a></li>
