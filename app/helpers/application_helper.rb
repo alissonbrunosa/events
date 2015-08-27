@@ -6,7 +6,7 @@ module ApplicationHelper
 		    <meta property="og:type"          content="website" />
 		    <meta property="og:title"         content="#{ @event.title }" />
 		    <meta property="og:description"   content="#{ @event.description }" />
-		    <meta property="og:image"         content="#{ @event.photo.url }" />
+		    <meta property="og:image"         content="#{ @event.photo.url(:original, timestamp: false) }" />
 			HTML
 			html.html_safe
 		end
