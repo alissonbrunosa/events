@@ -1,11 +1,12 @@
 class Event < ActiveRecord::Base
 	belongs_to :user
 	has_many :presences
-	has_attached_file :photo, styles: { 
-		thumb: "217x217#",
-		medium: "400x300#", 
-		banner: "750x500#" 
-	}
+	has_attached_file :photo, 
+		styles: { 
+			thumb: "350x250#",
+			medium: "400x300#", 
+			banner: "750x500#" 
+		}
   validates_attachment_content_type :photo, content_type: /\Aimage\/.*\Z/
   #process_in_background :photo, processing_image_url: "/photos/medium/missing.png"
 	validates :title, :description, :date_time, :local, presence: true

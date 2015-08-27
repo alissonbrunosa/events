@@ -3,12 +3,12 @@
     <div class="list-group">
       <div ng-repeat="event in eCtrl.events" style="padding-bottom=20px">
         <div class="list-group-item">
-          <div class="media col-md-3">
+          <div class="media col-md-4">
             <div class="pull-left">
               <img class="blogicon" ng-src="{{event.photo}}" />
             </div>
           </div>
-          <div class="col-md-6">
+          <div class="col-md-5">
             <h4 class="list-group-item-heading"><a ng-href="/events/{{event.id}}">{{ event.title }}</a></h4>
             <p class="list-group-item-text">
               {{ event.description }}

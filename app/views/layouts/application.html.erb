@@ -10,7 +10,7 @@
   <%= csrf_meta_tags %>
   <%= facebook_share %>
   <meta name="keywords" content="evento events brasil brazil ti tecnologia">
-  
+  <%= javascript_include_tag 'application' %>
 </head>
 <body>
 <a href="https://github.com/alissonbrunosa/events">
@@ -45,9 +45,6 @@
             </li>
           <% else %>
             <li class="page-scroll">
-              <%= link_to "Registrar", new_user_registration_path %><br />
-            </li>
-            <li class="page-scroll">
               <%= link_to "Entrar", new_user_session_path %>
             </li>
           <% end %>
@@ -64,5 +61,4 @@
   <%= yield %>
 </div>
 </body>
-<%= javascript_include_tag 'application' %>
 </html>

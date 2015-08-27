@@ -206,3 +206,6 @@ pt-BR:
       short: "%d de %B, %H:%M"
       when: "%A, %d de %B de %Y às %H:%M"
     pm: ''
+  facebook: "Facebook"
+  google_oauth2: "Gooogle+"
+  twitter: "Twitter"

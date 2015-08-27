@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
   root to: 'home#index'
 
-  devise_for :users
+  devise_for :users, :controllers => { omniauth_callbacks: 'omniauth_callbacks' }
   resources :events do 
     collection do 
       get 'events_current_user'
