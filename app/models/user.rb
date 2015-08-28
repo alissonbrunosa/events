@@ -1,7 +1,11 @@
 class User < ActiveRecord::Base
+
   has_many :events
+  has_one :identity
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
+  delegate :facebook?, to: :identity
+
 
   def self.find_for_oauth(auth, signed_in_resource = nil)
   	identity = Identity.find_for_oauth(auth)

@@ -1,6 +1,6 @@
 json.array!(@events) do |event|
   json.extract! event, :id, :title, :local
-  json.description truncate(event.description, length: 350)
+  json.description truncate(event.description, length: 250)
   json.created_at time_ago_in_words(event.created_at)
   json.date l(event.date_time, format: :when)
   json.presences_count event.presences_count

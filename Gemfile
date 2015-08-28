@@ -24,6 +24,7 @@ gem 'delayed_paperclip'
 gem 'sidekiq'
 gem 'aws-sdk', '< 2.0'
 gem "pundit"
+gem "fb_graph"
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 

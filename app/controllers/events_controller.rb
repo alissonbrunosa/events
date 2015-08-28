@@ -11,7 +11,7 @@ class EventsController < ApplicationController
   end
 
   def show
-   @event = Event.find(params[:id])
+    @event = Event.find(params[:id])
   end
 
   def new
@@ -23,15 +23,18 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = current_user.events.build(event_params)
-    @event.presences.build(user_id: current_user.id)
-    respond_to do |format|
-      if @event.save
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
-        format.json { render :show, status: :created, location: @event }
-      else
-        format.html { render :new }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
+    Event.transaction do
+      @event = current_user.events.build(event_params)
+      @event.presences.build(user_id: current_user.id)
+      respond_to do |format|
+        if @event.save
+          @event.post_facebook session[:access_toke], event_url(@event)
+          format.html { redirect_to @event, notice: 'Event was successfully created.' }
+          format.json { render :show, status: :created, location: @event }
+        else
+          format.html { render :new }
+          format.json { render json: @event.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -58,11 +61,11 @@ class EventsController < ApplicationController
   end
 
   private
-    def set_event
-      @event = current_user.events.find(params[:id])
-    end
+  def set_event
+    @event = current_user.events.find(params[:id])
+  end
 
-    def event_params
-      params.require(:event).permit(:photo, :title, :description, :local, :date_time)
-    end
+  def event_params
+    params.require(:event).permit(:photo, :title, :description, :local, :date_time, :enable_facebook_post)
+  end
 end
