@@ -1,7 +1,6 @@
 Events Brazil
-[![Code Climate](https://codeclimate.com/repos/56a2f9af8b2610003a008fbb/badges/4a4c27323579649ddc53/gpa.svg)](https://codeclimate.com/repos/56a2f9af8b2610003a008fbb/feed)
 ----------
-
+[![Code Climate](https://codeclimate.com/repos/56a2f9af8b2610003a008fbb/badges/4a4c27323579649ddc53/gpa.svg)](https://codeclimate.com/repos/56a2f9af8b2610003a008fbb/feed)
 
 Principal objetivo é:
 --------------
